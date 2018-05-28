@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 public class CustomPagerAdapter extends FragmentPagerAdapter {
     CatsFragment catsFragment = new CatsFragment();
     DogsFragment dogsFragment = new DogsFragment();
+    OverviewFragment overviewFragment = new OverviewFragment();
 
     public CustomPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -16,8 +17,10 @@ public class CustomPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if (position == 0) {
-            return catsFragment;
+            return overviewFragment;
         } else if (position == 1) {
+            return catsFragment;
+        } else if (position == 2) {
             return dogsFragment;
         }
         return null;
@@ -27,8 +30,10 @@ public class CustomPagerAdapter extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         if (position == 0) {
-            return catsFragment.getTitle();
+            return overviewFragment.getTitle();
         } else if (position == 1) {
+            return catsFragment.getTitle();
+        } else if (position == 2) {
             return dogsFragment.getTitle();
         }
         return null;
@@ -36,6 +41,6 @@ public class CustomPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 2;
+        return 3;
     }
 }
